@@ -2,7 +2,7 @@ package net.avicus.compendium.network;
 
 import com.google.common.collect.Range;
 import org.bukkit.entity.Player;
-import us.myles.ViaVersion.api.Via;
+import protocolsupport.api.ProtocolSupportAPI;
 
 public final class Protocol {
 
@@ -19,6 +19,6 @@ public final class Protocol {
   }
 
   public static int versionOf(final Player player) {
-    return Via.getAPI().getPlayerVersion(player.getUniqueId());
+    return ProtocolSupportAPI.getProtocolVersion(player).getId();
   }
 }

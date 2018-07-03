@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>net.avicus</groupId>
@@ -21,6 +21,14 @@
     <repository>
       <id>viaversion-repo</id>
       <url>https://repo.viaversion.com</url>
+    </repository>
+    <repository>
+      <id>vector-repo</id>
+      <url>https://repo.vectormc.net/artifactory/public</url>
+    </repository>
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
     </repository>
   </repositories>
   <dependencies>
@@ -81,7 +89,7 @@
     <dependency>
       <groupId>com.comphenix.protocol</groupId>
       <artifactId>ProtocolLib</artifactId>
-      <version>4.3.0</version>
+      <version>4.4.0</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>
@@ -101,6 +109,16 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.3.2</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.inventivetalent</groupId>
+      <artifactId>bossbarapi</artifactId>
+      <version>2.4.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.ProtocolSupport</groupId>
+      <artifactId>ProtocolSupport</artifactId>
+      <version>507cbc1086</version>
     </dependency>
   </dependencies>
   <build>

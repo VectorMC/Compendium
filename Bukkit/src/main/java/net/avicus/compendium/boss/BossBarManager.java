@@ -4,11 +4,11 @@ import com.google.common.collect.Sets;
 import java.util.Set;
 import javax.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
+import net.avicus.compendium.utils.PlayerConnectionVersion;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
-import protocolsupport.api.ProtocolSupportAPI;
 
 /**
  * A boss bar manager.
@@ -46,7 +46,7 @@ public class BossBarManager implements Listener, Runnable {
   @Nonnull
   @SuppressWarnings("unchecked")
   public BossBar create(@Nonnull final Player player) {
-    final int version = ProtocolSupportAPI.getProtocolVersion(player).getId();
+    final int version = PlayerConnectionVersion.getProtocolVersion(player);
 
     if (version >= 4 && version <= 47) // 1.7-1.8.9
     {

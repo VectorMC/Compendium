@@ -5,8 +5,11 @@ authors:
 - Avicus Network
 depend:
 - ProtocolLib
-- ProtocolSupport
 - BossBarAPI
+softdepend:
+- ProtocolSupport
+- or
+- ViaVersion
 commands:
   set:
   setting:

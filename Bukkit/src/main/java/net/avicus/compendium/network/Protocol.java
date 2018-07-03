@@ -1,8 +1,8 @@
 package net.avicus.compendium.network;
 
 import com.google.common.collect.Range;
+import net.avicus.compendium.utils.PlayerConnectionVersion;
 import org.bukkit.entity.Player;
-import protocolsupport.api.ProtocolSupportAPI;
 
 public final class Protocol {
 
@@ -19,6 +19,6 @@ public final class Protocol {
   }
 
   public static int versionOf(final Player player) {
-    return ProtocolSupportAPI.getProtocolVersion(player).getId();
+    return PlayerConnectionVersion.getProtocolVersion(player);
   }
 }

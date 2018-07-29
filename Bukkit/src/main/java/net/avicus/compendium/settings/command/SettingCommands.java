@@ -2,10 +2,9 @@ package net.avicus.compendium.settings.command;
 
 import com.sk89q.minecraft.util.commands.Command;
 import com.sk89q.minecraft.util.commands.CommandContext;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+
+import java.util.*;
+
 import net.avicus.compendium.Paginator;
 import net.avicus.compendium.TextStyle;
 import net.avicus.compendium.commands.exception.InvalidPaginationPageException;
@@ -52,7 +51,7 @@ public class SettingCommands {
         .parse(args.getString(1));
 
     if (!value.isPresent()) {
-      sender.sendMessage(Messages.ERRORS_INVALID_VALUE.with(ChatColor.RED));
+      sender.sendMessage(Messages.ERRORS_INVALID_VALUE.with(ChatColor.RED).translate(sender));
       return;
     }
 
@@ -60,7 +59,7 @@ public class SettingCommands {
 
     Localizable name = setting.getName().duplicate();
     Localizable set = new UnlocalizedText(value.get().serialize());
-    sender.sendMessage(Messages.GENERIC_SETTING_SET.with(ChatColor.GOLD, name, set));
+    sender.sendMessage(Messages.GENERIC_SETTING_SET.with(ChatColor.GOLD, name, set).translate(sender));
   }
 
   @Command(aliases = {
@@ -86,18 +85,18 @@ public class SettingCommands {
         TextStyle.ofColor(ChatColor.RED).strike());
     UnlocalizedFormat header = new UnlocalizedFormat("{0} {1} {2}");
     Localizable name = setting.getName().duplicate();
-    sender.sendMessage(header.with(ChatColor.YELLOW, line, name, line));
+    sender.sendMessage(header.with(ChatColor.YELLOW, line, name, line).translate(sender));
 
     // Summary
     Localizable summary = setting.getSummary().duplicate();
     summary.style().color(ChatColor.WHITE);
-    sender.sendMessage(Messages.GENERIC_SUMMARY.with(ChatColor.YELLOW, summary));
+    sender.sendMessage(Messages.GENERIC_SUMMARY.with(ChatColor.YELLOW, summary).translate(sender));
 
     if (setting.getDescription().isPresent()) {
       // Description
       Localizable desc = setting.getDescription().get().duplicate();
       desc.style().color(ChatColor.WHITE);
-      sender.sendMessage(Messages.GENERIC_DESCRIPTION.with(ChatColor.YELLOW, desc));
+      sender.sendMessage(Messages.GENERIC_DESCRIPTION.with(ChatColor.YELLOW, desc).translate(sender));
     }
 
     // Current value
@@ -105,14 +104,14 @@ public class SettingCommands {
     String current = setting.getType().value(currentRaw).serialize();
     Localizable currentText = new UnlocalizedText(current, ChatColor.WHITE);
 
-    sender.sendMessage(Messages.GENERIC_CURRENT.with(ChatColor.YELLOW, currentText));
+    sender.sendMessage(Messages.GENERIC_CURRENT.with(ChatColor.YELLOW, currentText).translate(sender));
 
     // Default value
     Object defaultRaw = setting.getDefaultValue();
     String def = setting.getType().value(defaultRaw).serialize();
     Localizable defText = new UnlocalizedText(def, ChatColor.WHITE);
 
-    sender.sendMessage(Messages.GENERIC_DEFAULT.with(ChatColor.YELLOW, defText));
+    sender.sendMessage(Messages.GENERIC_DEFAULT.with(ChatColor.YELLOW, defText).translate(sender));
 
     if (setting.getType().value(setting.getDefaultValue()) instanceof SettingValueToggleable
         && target.getName().equals(sender.getName())) {
@@ -121,7 +120,7 @@ public class SettingCommands {
       toggle.style().click(new ClickEvent(ClickEvent.Action.RUN_COMMAND,
           "/toggle " + name.translate(sender.getLocale()).toPlainText()));
 
-      sender.sendMessage(toggle);
+      sender.sendMessage(toggle.translate(sender));
     }
   }
 
@@ -182,7 +181,7 @@ public class SettingCommands {
     LocalizedNumber pageNumber = new LocalizedNumber(page + 1);
     LocalizedNumber pagesNumber = new LocalizedNumber(paginator.getPageCount());
     Localizable title = Messages.GENERIC_SETTINGS.with(ChatColor.YELLOW);
-    sender.sendMessage(header.with(line, title, pageNumber, pagesNumber, line));
+    sender.sendMessage(header.with(line, title, pageNumber, pagesNumber, line).translate(sender));
 
     // Setting Format
     UnlocalizedFormat format = new UnlocalizedFormat("{0}: {1}");
@@ -201,7 +200,7 @@ public class SettingCommands {
 
       Localizable summary = setting.getSummary().duplicate();
 
-      sender.sendMessage(format.with(ChatColor.WHITE, name, summary));
+      sender.sendMessage(format.with(ChatColor.WHITE, name, summary).translate(sender));
     }
   }
 
@@ -227,9 +226,9 @@ public class SettingCommands {
       Localizable name = setting.getName().duplicate();
       Localizable value = new UnlocalizedText(setting.getType().value(result.get()).serialize());
 
-      sender.sendMessage(Messages.GENERIC_SETTING_SET.with(ChatColor.GOLD, name, value));
+      sender.sendMessage(Messages.GENERIC_SETTING_SET.with(ChatColor.GOLD, name, value).translate(sender));
     } else {
-      sender.sendMessage(Messages.ERRORS_NOT_TOGGLE.with(ChatColor.RED));
+      sender.sendMessage(Messages.ERRORS_NOT_TOGGLE.with(ChatColor.RED).translate(sender));
     }
   }
 }

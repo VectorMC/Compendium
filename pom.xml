@@ -29,15 +29,23 @@
             <id>avicus-private</id>
             <url>https://repo.avicus.net/content/groups/private/</url>
         </repository>
+        <repository>
+            <id>vector-repo</id>
+            <url>https://repo.vectormc.net/artifactory/public/</url>
+        </repository>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
     </repositories>
     <distributionManagement>
         <repository>
-            <id>avicus-repo</id>
-            <url>https://repo.avicus.net/content/repositories/releases/</url>
+            <id>vector-repo</id>
+            <url>https://repo.vectormc.net/artifactory/public/</url>
         </repository>
         <snapshotRepository>
-            <id>avicus-repo</id>
-            <url>https://repo.avicus.net/content/repositories/snapshots/</url>
+            <id>vector-repo</id>
+            <url>https://repo.vectormc.net/artifactory/public/</url>
         </snapshotRepository>
     </distributionManagement>
     <dependencies>

@@ -5,7 +5,6 @@ authors:
 - Avicus Network
 depend:
 - ProtocolLib
-- BossBarAPI
 softdepend:
 - ProtocolSupport
 - or

@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
 import net.avicus.compendium.boss.BossBarManager;
-import net.avicus.compendium.boss.LegacyBossBarContext;
 import net.avicus.compendium.AvicusCommandsManager;
 import net.avicus.compendium.commands.AvicusCommandsRegistration;
 import net.avicus.compendium.commands.UtilityCommands;
@@ -62,11 +61,7 @@ public class CompendiumPlugin extends JavaPlugin {
     final PluginManager pm = this.getServer().getPluginManager();
     final BukkitScheduler scheduler = this.getServer().getScheduler();
 
-    final LegacyBossBarContext legacyContext = new LegacyBossBarContext();
-    scheduler.runTaskTimer(this, legacyContext, 0, 5 * 20);
-    this.bossBarManager = new BossBarManager(legacyContext);
-    pm.registerEvents(this.bossBarManager, this);
-    scheduler.runTaskTimer(this, this.bossBarManager, 0, 5);
+    this.bossBarManager = new BossBarManager();
     this.countdownManager = new CountdownManager();
     pm.registerEvents(this.countdownManager, this);
     pm.registerEvents(new InventoryListener(), this);
@@ -92,21 +87,21 @@ public class CompendiumPlugin extends JavaPlugin {
     try {
       this.commandManager.execute(command.getName(), args, sender, sender);
     } catch (AbstractTranslatableCommandException e) {
-      sender.sendMessage(AbstractTranslatableCommandException.format(e));
+      sender.sendMessage(AbstractTranslatableCommandException.format(e).translate(sender));
     } catch (CommandNumberFormatException e) {
       sender.sendMessage(AbstractTranslatableCommandException
-          .error(Messages.ERRORS_COMMAND_NUMBER_EXPECTED, new UnlocalizedText(e.getActualText())));
+          .error(Messages.ERRORS_COMMAND_NUMBER_EXPECTED, new UnlocalizedText(e.getActualText())).translate(sender));
     } catch (CommandPermissionsException e) {
       sender.sendMessage(
-          AbstractTranslatableCommandException.error(Messages.ERRORS_COMMAND_NO_PERMISSION));
+          AbstractTranslatableCommandException.error(Messages.ERRORS_COMMAND_NO_PERMISSION).translate(sender));
     } catch (CommandUsageException e) {
       sender.sendMessage(AbstractTranslatableCommandException
-          .error(Messages.ERRORS_COMMAND_INVALID_USAGE, new UnlocalizedText(e.getUsage())));
+          .error(Messages.ERRORS_COMMAND_INVALID_USAGE, new UnlocalizedText(e.getUsage())).translate(sender));
     } catch (WrappedCommandException e) {
       sender.sendMessage(e.getMessage());
     } catch (CommandException e) {
       sender.sendMessage(
-          AbstractTranslatableCommandException.error(Messages.ERRORS_COMMAND_INTERNAL_ERROR));
+          AbstractTranslatableCommandException.error(Messages.ERRORS_COMMAND_INTERNAL_ERROR).translate(sender));
       e.printStackTrace();
     }
 

@@ -6,8 +6,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import net.avicus.minecraft.api.command.CommandSender;
-import net.avicus.minecraft.api.command.ConsoleCommandSender;
+import net.vectormc.minecraft.api.command.CommandSender;
+import net.vectormc.minecraft.api.command.ConsoleCommandSender;
 
 /**
  * A custom implementation of the {@link CommandsManager} which is used to register single methods

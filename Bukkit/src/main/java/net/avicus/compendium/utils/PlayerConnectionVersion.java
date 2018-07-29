@@ -2,24 +2,26 @@ package net.avicus.compendium.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import protocolsupport.api.ProtocolSupportAPI;
-import us.myles.ViaVersion.api.Via;
 
 import java.util.UUID;
 
 public class PlayerConnectionVersion {
     public static int getProtocolVersion(Player p) {
+        int id;
         try {
-            return ProtocolSupportAPI.getProtocolVersion(p).getId();
-        } catch(Exception psnothere) {
-            try {
-                return Via.getAPI().getPlayerVersion(p.getUniqueId());
-            } catch(Exception e) {
-                psnothere.printStackTrace();
-                e.printStackTrace();
+            if(Bukkit.getPluginManager().isPluginEnabled("ProtocolSupport")) {
+                id = protocolsupport.api.ProtocolSupportAPI.getProtocolVersion(p).getId();
+            } else if(Bukkit.getPluginManager().isPluginEnabled("ViaVersion")) {
+                id = us.myles.ViaVersion.api.Via.getAPI().getPlayerVersion(p.getUniqueId());
+            } else {
+                id = p.getProtocolVersion();
             }
+        } catch(Exception e) {
+            id = 0;
+            e.printStackTrace();
         }
-        return p.getProtocolVersion();
+
+        return id;
     }
 
     public static int getProtocolVersion(UUID u) {

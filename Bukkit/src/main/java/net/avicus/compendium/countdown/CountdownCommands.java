@@ -54,7 +54,7 @@ public class CountdownCommands {
     LocalizedNumber pageNumber = new LocalizedNumber(page + 1);
     LocalizedNumber pagesNumber = new LocalizedNumber(paginator.getPageCount());
     Localizable title = Messages.GENERIC_COUNTDOWN_COMMAND_HEADER.with(ChatColor.YELLOW);
-    source.sendMessage(header.with(line, title, pageNumber, pagesNumber, line));
+    source.sendMessage(header.with(line, title, pageNumber, pagesNumber, line).translate(source));
 
     final UnlocalizedFormat format = new UnlocalizedFormat("{0}: {1}");
     final HoverEvent hover = new HoverEvent(HoverEvent.Action.SHOW_TEXT, new BaseComponent[]{
@@ -64,7 +64,7 @@ public class CountdownCommands {
       number.style().color(ChatColor.YELLOW);
       number.style().click(new ClickEvent(ClickEvent.Action.RUN_COMMAND,
           "/countdown cancel " + countdown.getValue().getTaskId())).hover(hover);
-      source.sendMessage(format.with(number, countdown.getKey().getName()));
+      source.sendMessage(format.with(number, countdown.getKey().getName()).translate(source));
     }
   }
 
@@ -88,12 +88,12 @@ public class CountdownCommands {
           case 1:
             manager.cancelAll();
             source.sendMessage(
-                Messages.GENERIC_COUNTDOWN_COMMAND_CANCEL_ALL_SINGULAR.with(ChatColor.GREEN));
+                Messages.GENERIC_COUNTDOWN_COMMAND_CANCEL_ALL_SINGULAR.with(ChatColor.GREEN).translate(source));
             break;
           default:
             manager.cancelAll();
             source.sendMessage(Messages.GENERIC_COUNTDOWN_COMMAND_CANCEL_ALL_PLURAL
-                .with(ChatColor.GREEN, new LocalizedNumber(countdowns)));
+                .with(ChatColor.GREEN, new LocalizedNumber(countdowns)).translate(source));
             break;
         }
       } else {
@@ -106,7 +106,7 @@ public class CountdownCommands {
         manager.cancel(countdown.getCountdown());
         source.sendMessage(Messages.GENERIC_COUNTDOWN_COMMAND_CANCEL_SINGULAR
             .with(ChatColor.GREEN, countdown.getCountdown().getName(),
-                new LocalizedNumber(countdown.getTaskId())));
+                new LocalizedNumber(countdown.getTaskId())).translate(source));
       }
     }
 
@@ -135,7 +135,7 @@ public class CountdownCommands {
               countdown.setDuration(duration);
             });
             source.sendMessage(
-                Messages.GENERIC_COUNTDOWN_COMMAND_MODTIME_ALL_SINGULAR.with(ChatColor.GREEN));
+                Messages.GENERIC_COUNTDOWN_COMMAND_MODTIME_ALL_SINGULAR.with(ChatColor.GREEN).translate(source));
             break;
           default:
             manager.getCountdowns().forEach((countdown, task) -> {
@@ -143,7 +143,7 @@ public class CountdownCommands {
               countdown.setDuration(duration);
             });
             source.sendMessage(Messages.GENERIC_COUNTDOWN_COMMAND_MODTIME_ALL_PLURAL
-                .with(ChatColor.GREEN, new LocalizedNumber(countdowns)));
+                .with(ChatColor.GREEN, new LocalizedNumber(countdowns)).translate(source));
             break;
         }
       } else {
@@ -163,7 +163,7 @@ public class CountdownCommands {
         countdown.getCountdown().setDuration(duration);
         source.sendMessage(Messages.GENERIC_COUNTDOWN_COMMAND_MODTIME_SINGULAR
             .with(ChatColor.GREEN, countdown.getCountdown().getName(),
-                new LocalizedNumber(countdown.getTaskId())));
+                new LocalizedNumber(countdown.getTaskId())).translate(source));
       }
     }
   }

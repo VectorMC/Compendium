@@ -2,6 +2,7 @@ package net.avicus.compendium.locale.text;
 
 import net.avicus.compendium.TextStyle;
 import net.avicus.compendium.locale.LocaleBundle;
+import net.md_5.bungee.api.chat.BaseComponent;
 
 /**
  * Represents a format that takes arguments for localization with {@link LocalizedText}s.

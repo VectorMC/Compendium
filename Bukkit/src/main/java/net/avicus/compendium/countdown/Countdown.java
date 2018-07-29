@@ -95,9 +95,8 @@ public abstract class Countdown {
    */
   protected void updateBossBar(Localizable name, float percent) {
     for (Player player : Bukkit.getOnlinePlayers()) {
-      this.getBossBar(player)
-          .setName(name.translate(player.getLocale()))
-          .setPercent(percent);
+      this.getBossBar(player).setName(name.translate(player.getLocale()));
+      this.getBossBar(player).setPercent(percent);
     }
   }
 

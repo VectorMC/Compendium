@@ -49,12 +49,12 @@
       <version>dev-1.12.2-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
+    <!--<dependency>
       <groupId>com.destroystokyo.paper</groupId>
       <artifactId>paper</artifactId>
       <version>1.12.2-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
-    </dependency>
+    </dependency>-->
     <!--<dependency>
       <groupId>net.vectormc</groupId>
       <artifactId>paperweight-api</artifactId>
@@ -111,7 +111,7 @@
       <artifactId>command-framework-core</artifactId>
       <version>1.9-SNAPSHOT</version>
     </dependency>
-    <dependency>
+    <!--<dependency>
       <groupId>com.comphenix.protocol</groupId>
       <artifactId>ProtocolLib</artifactId>
       <version>4.4.0</version>
@@ -122,7 +122,7 @@
           <artifactId>BukkitExecutors</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
+    </dependency>-->
     <dependency>
       <groupId>us.myles</groupId>
       <artifactId>viaversion</artifactId>

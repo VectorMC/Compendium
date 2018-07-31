@@ -4,7 +4,7 @@ version: ${project.version}-${git.commit.id.abbrev}
 authors:
 - Avicus Network
 depend:
-- ProtocolLib
+#- ProtocolLib
 softdepend:
 - ProtocolSupport
 - or

@@ -14,7 +14,7 @@ public class NewBossBar extends BossBar {
     NewBossBar() {
         this.bar = Bukkit.createBossBar(
                 "o_o",
-                BarColor.PURPLE,
+                BarColor.PINK,
                 BarStyle.SOLID
         );
     }

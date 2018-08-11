@@ -10,7 +10,7 @@ import java.net.URL;
 
 public class Paste {
 
-  private static String pasteURL = "https://paste.avicus.net/";
+  private static String pasteURL = "https://paste.vectormc.net/";
 
   private final String title;
   private final String author;

@@ -31,7 +31,7 @@
       <version>3.2.7.Final</version>
     </dependency>
     <dependency>
-      <groupId>net.vectormc</groupId>
+      <groupId>net.avicus</groupId>
       <artifactId>minecraft-api</artifactId>
       <version>1.12-SNAPSHOT</version>
       <scope>provided</scope>

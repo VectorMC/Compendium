@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>net.avicus</groupId>
@@ -22,14 +22,6 @@
       <id>viaversion-repo</id>
       <url>https://repo.viaversion.com</url>
     </repository>
-    <repository>
-      <id>vector-repo</id>
-      <url>https://repo.vectormc.net/artifactory/public</url>
-    </repository>
-    <repository>
-      <id>jitpack.io</id>
-      <url>https://jitpack.io</url>
-    </repository>
   </repositories>
   <dependencies>
     <dependency>
@@ -44,40 +36,15 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>net.vectormc</groupId>
-      <artifactId>next</artifactId>
-      <version>dev-1.12.2-R0.1-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <!--<dependency>
-      <groupId>com.destroystokyo.paper</groupId>
-      <artifactId>paper</artifactId>
-      <version>1.12.2-R0.1-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>-->
-    <!--<dependency>
-      <groupId>net.vectormc</groupId>
-      <artifactId>paperweight-api</artifactId>
-      <version>dev-1.12-R0.1-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>net.vectormc</groupId>
-      <artifactId>paperweight</artifactId>
-      <version>dev-1.12-R0.1-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>net.avicus</groupId>
       <artifactId>magnet-api</artifactId>
       <version>1.8.8-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
-    </dependency>-->
+    </dependency>
     <dependency>
-      <groupId>net.vectormc</groupId>
+      <groupId>net.avicus</groupId>
       <artifactId>minecraft-api</artifactId>
       <version>1.12-SNAPSHOT</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.jdom</groupId>
@@ -111,10 +78,10 @@
       <artifactId>command-framework-core</artifactId>
       <version>1.9-SNAPSHOT</version>
     </dependency>
-    <!--<dependency>
+    <dependency>
       <groupId>com.comphenix.protocol</groupId>
       <artifactId>ProtocolLib</artifactId>
-      <version>4.4.0</version>
+      <version>4.3.0</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>
@@ -122,7 +89,7 @@
           <artifactId>BukkitExecutors</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>-->
+    </dependency>
     <dependency>
       <groupId>us.myles</groupId>
       <artifactId>viaversion</artifactId>
@@ -133,12 +100,6 @@
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>3.3.2</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.github.ProtocolSupport</groupId>
-      <artifactId>ProtocolSupport</artifactId>
-      <version>507cbc1086</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
